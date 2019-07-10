@@ -2,9 +2,7 @@
 
 ![Deft layout for the Planck keyboard](https://i.imgur.com/VtUkAyh.png)
 
-The Deft Planck layout is designed for efficiency in programming and transferability between ortholinear boards. For the Planck, it features a fairly standard default layer with properly placed arrow keys, a lower layer with a usable numpad and symbols, and a raise layer for numbers, f-keys, and music controls. The code is also cut down to only what you need. The result is a very usable Planck that can easily replace fullsize layouts.
-
-The strangely placed Enter key is meant to be closer to your thumb and moving it allows for proper arrow key placement without disturbing our layout too much. I wanted to separate the enter key from the forward slash key anyway, as I was commonly pressing enter when I meant to type a question mark. You get used to it pretty fast.
+The Deft Planck layout is designed for efficiency in programming and transferability between ortholinear boards. For the Planck, it features a fairly standard default layer with properly placed arrow keys, a lower layer with a usable numpad and symbols, and a raise layer for numbers, f-keys, and music controls. The result is a very usable Planck that can easily replace fullsize layouts.
 
 Follow my cat:
 
@@ -29,7 +27,7 @@ https://www.instagram.com/BuchaTheCat/
 |------+------+------+------+------+------|------+------+------+------+------+------|
 |Shift |  Z   |   X  |   C  |   V  |   B  |   N  |   M  |   ,  |   .  |  Up  |  /   |
 |------+------+------+------+------+------+------+------+------+------+------+------|
-| Ctrl | Alt  | GUI  | Copy |Lower |    Space    |Raise |Enter | Left | Down |Right |
+| Ctrl | Alt  | GUI  | Copy |Lower |Space |Enter |Raise | Alt  | Left | Down |Right |
 `-----------------------------------------------------------------------------------'
 ```
 
