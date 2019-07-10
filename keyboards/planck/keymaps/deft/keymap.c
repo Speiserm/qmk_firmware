@@ -16,6 +16,8 @@
  * HelixPico
  * BFO-9000
  * Sol 2
+ * Miuni32
+ * Redox
  *
  * The Deft keyboard layout was designed by Michael Speiser. You can find other Deft layouts at my Github:
  * https://github.com/Speiserm
