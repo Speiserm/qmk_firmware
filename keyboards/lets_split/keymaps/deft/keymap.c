@@ -6,13 +6,17 @@
  * Deft is currently supported on the following boards:
  * Planck (12x4)
  * Let's Split (12x4 split)
+ * CRKBD (Corne) (Helidox)
  *
  * Coming soon to:
- * Ergodox
- * CRKBD (Corne) (Helidox)
+ * Ergodoxs
  * XD75
  * Collide39
- *
+ * Helix
+ * HelixPico
+ * BFO-9000
+ * Sol 2
+ * Miuni32
  *
  * The Deft keyboard layout was designed by Michael Speiser. You can find other Deft layouts at my Github:
  * https://github.com/Speiserm
@@ -20,7 +24,7 @@
  * A keymap overview and changelog should be available in the repo you got this software from, or at my repo, listed above.
  *
  * For questions, issues, or feedback, feel free to email me at Speiserm@pm.me.
- *
+ *s
  *
  * Flashing:
  *

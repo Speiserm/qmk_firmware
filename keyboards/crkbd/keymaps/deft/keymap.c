@@ -6,10 +6,10 @@
  * Deft is currently supported on the following boards:
  * Planck (12x4)
  * Let's Split (12x4 split)
+ * CRKBD (Corne) (Helidox)
  *
  * Coming soon to:
  * Ergodox
- * CRKBD (Corne) (Helidox)
  * XD75
  * Collide39
  * Helix
@@ -27,8 +27,8 @@
  *
  *
  * Flashing:
- * make crkbd:deft:dfu
  *
+ * make crkbd:deft:dfu
  *
  *
  *
