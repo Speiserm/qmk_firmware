@@ -2,7 +2,7 @@
  * The Deft layout for the Planck Keyboard
  * Deft Version 1.1
  *
- * A keyboard layout designed for efficiency in programming and transferability between ortholinear boards.
+ * A modified Workman layout designed for efficiency in programming and transferability between ortholinear boards.
  * Deft is currently supported on the following boards:
  * Planck (12x4)
  * Let's Split (12x4 split)
@@ -88,24 +88,24 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   KC_ESC,    KC_Q,    KC_D,    KC_R,    KC_W,    KC_B,    KC_J,    KC_F,    KC_U,    KC_P,    KC_SCLN,    KC_BSPC,
   KC_TAB,    KC_A,    KC_S,    KC_H,    KC_T,    KC_G,    KC_Y,    KC_N,    KC_E,    KC_O,    KC_I, KC_QUOT,
   KC_LSFT,   KC_Z,    KC_X,    KC_M,    KC_C,    KC_V,    KC_K,    KC_L,    KC_COMM, KC_DOT,  KC_UP,   KC_SLSH,
-  KC_LCTL, KC_LALT, KC_LGUI, C(KC_C),   LOWER,  KC_SPC,  KC_ENT,   RAISE, KC_LEAD, KC_LEFT, KC_DOWN,   KC_RGHT
+  KC_LCTL, KC_LALT, KC_LGUI, C(KC_C),   LOWER,  KC_ENT,  KC_SPC,   RAISE, KC_LEAD, KC_LEFT, KC_DOWN,   KC_RGHT
 ),
 
 /* Lower
  * ,-----------------------------------------------------------------------------------.
- * | Del  | Alt1 | Alt2 | Alt3 | Alt4 |  (   |  )   |      |      |      |      |      |
+ * | Del  | Alt1 | Alt2 | Alt3 | Alt4 |  (   |  )   |Mouse1|MouseU|Mouse2|WheelU|WheelR|
  * |------+------+------+------+------+-------------+------+------+------+------+------|
- * |      |  `   |  \   |  =   |  -   |  <   |  >   |      |      |      |      |      |
+ * |      |  `   |  \   |  =   |  -   |  <   |  >   |MouseL|MouseD|MouseR|WheelD|WheelL|
  * |------+------+------+------+------+------|------+------+------+------+------+------|
- * |      |      |      |      |      |  [   |  ]   |      |      |      | Pgup |      |
+ * |      |      |      |      |      |  [   |  ]   |Speed0|Speed1|Speed2| Pgup |      |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
  * |      |      |      |Paste |      |      |      |      |      | Home | Pgdn | End  |
  * `-----------------------------------------------------------------------------------'
  */
 [_LOWER] = LAYOUT_planck_grid(
-  KC_DEL, A(KC_1), A(KC_2), A(KC_3), A(KC_4), S(KC_9), S(KC_0), _______, _______, _______, _______, _______,
-  _______,  KC_GRV,KC_BSLS,KC_EQL, KC_MINS,S(KC_COMM),S(KC_DOT), _______, _______,   _______, _______, _______,
-  _______, _______, _______, _______, _______, KC_LBRC, KC_RBRC, _______, _______, _______, KC_PGUP, _______,
+  KC_DEL, A(KC_1), A(KC_2), A(KC_3), A(KC_4), S(KC_9), S(KC_0), KC_BTN1, KC_MS_U, KC_BTN2, KC_WH_U, KC_WH_R,
+  _______,  KC_GRV,KC_BSLS,KC_EQL, KC_MINS,S(KC_COMM),S(KC_DOT), KC_MS_L, KC_MS_D, KC_MS_R, KC_WH_D, KC_WH_L,
+  _______, _______, _______, _______, _______, KC_LBRC, KC_RBRC, KC_ACL0, KC_ACL1, KC_ACL2, KC_PGUP, _______,
   _______, _______, _______, C(KC_V), _______, _______, _______, _______, _______, KC_HOME,KC_PGDOWN, KC_END
 ),
 
@@ -129,20 +129,20 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 /* Adjust (Lower + Raise)
  * ,-----------------------------------------------------------------------------------.
- * |Reset |      |      |      |      |      |      |      |      |      |      |      |
+ * |Reset |      |      |      |      |      |      |      |      |      |ClkRST|ClkUP |
  * |------+------+------+------+------+-------------+------+------+------+------+------|
- * |      |      |      |      |      |      |      |      |      |      |      |      |
+ * |      |      |      |      |      |      |      |      |      |      |      |ClkDN |
  * |------+------+------+------+------+------|------+------+------+------+------+------|
- * |      |      |      |      |      |      |      |      |      |      |      |      |
+ * |      |      |      |      |      |      |      |      |      |      |      |ClkTOG|
  * |------+------+------+------+------+------+------+------+------+------+------+------|
- * |      |      |      |      |      |      |      |      |      |      |      |      |
+ * |      |      |      |      |      |      |      |      |      |      |      |AudTOG|
  * `-----------------------------------------------------------------------------------'
  */
 [_ADJUST] = LAYOUT_planck_grid(
-  RESET, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
-  _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
-  _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
-  _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______
+  RESET, _______, _______, _______, _______, _______, _______, _______, _______, _______, CK_RST, CK_UP,
+  _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, CK_DOWN,
+  _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, CK_TOGG,
+  _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, AU_TOG
 )
 
 };

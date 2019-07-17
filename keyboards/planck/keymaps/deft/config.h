@@ -1,13 +1,14 @@
 #pragma once
+#define NO_MUSIC_MODE
+#define CUSTOM \
+E__NOTE(_A5  ), \
+HD_NOTE(_E6  ),
 
 #ifdef AUDIO_ENABLE
-    #define STARTUP_SONG SONG(PLANCK_SOUND)
+      #define STARTUP_SONG SONG(CUSTOM)
     // #define STARTUP_SONG SONG(NO_SOUND)
+    #define AUDIO_CLICKY
 
-    #define DEFAULT_LAYER_SONGS { SONG(QWERTY_SOUND), \
-                                  SONG(COLEMAK_SOUND), \
-                                  SONG(DVORAK_SOUND) \
-                                }
 #endif
 
 /*
@@ -34,7 +35,5 @@
 /* override number of MIDI tone keycodes (each octave adds 12 keycodes and allocates 12 bytes) */
 //#define MIDI_TONE_KEYCODE_OCTAVES 2
 
-// Most tactile encoders have detents every 4 stages
-#define ENCODER_RESOLUTION 4
-
 #define LEADER_TIMEOUT 300
+#define MK_3_SPEED
