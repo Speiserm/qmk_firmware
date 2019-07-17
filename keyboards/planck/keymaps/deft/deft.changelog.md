@@ -2,7 +2,7 @@
 
 Deft Version 1.1
 
-A keyboard layout designed for efficiency in programming and transferability between ortholinear boards.
+A modified Workman layout designed for efficiency in programming and transferability between ortholinear boards.
 
 ---
 
@@ -14,6 +14,12 @@ A keyboard layout designed for efficiency in programming and transferability bet
 - Removed numpad from the lower layer of the Planck layout, the numpad layout is obscure and I never use it anyway.
 
 ---
+
+TODO:
+
+Figure out if space/enter should be under homing keys or if it should be lower/raise
+Figure out the positions of brackets, curly braces should probably be on the botton for Helix
+Work out leader functionality
 
 **Deft is currently supported on the following boards:**
 
