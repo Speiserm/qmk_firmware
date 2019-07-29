@@ -28,7 +28,7 @@
  *
  * Flashing:
  *
- * make crkbd:deft:dfu
+ * make crkbd:deft:avrdude
  *
  *
  *
@@ -90,20 +90,28 @@ enum macro_keycodes {
   KC_SAMPLEMACRO,
 };
 
-#define KC______ KC_TRNS
-#define KC_XXXXX KC_NO
+#define KC______ KC_TRNS /* Fix these */
+#define XXXXX KC_TRNS
 #define KC_LOWER LOWER
 #define KC_RAISE RAISE
-#define KC_RST   RESET
-#define KC_LRST  RGBRST
-#define KC_LTOG  RGB_TOG
-#define KC_LHUI  RGB_HUI
-#define KC_LHUD  RGB_HUD
-#define KC_LSAI  RGB_SAI
-#define KC_LSAD  RGB_SAD
-#define KC_LVAI  RGB_VAI
-#define KC_LVAD  RGB_VAD
-#define KC_LMOD  RGB_MOD
+#define RGBTOG  RGB_TOG /* Toggle RGB lighting on/off */
+#define RGBMODE RGB_MOD /* Cycle through RGB modes, hold shift to go backwards */
+#define HUE_UP RGB_HUI /* Increase hue */
+#define HUE_DN RGB_HUD /* Decrease hue */
+#define SAT_UP RGB_SAI /* Increase saturation */
+#define SAT_DN RGB_SAD /* Decrease saturation */
+#define BRT_UP RGB_VAI /* Increase brightness */
+#define BRT_DN RGB_VAD /* Decrease brightness */
+#define STATIC RGB_M_P /* Static light mode */
+#define BREATHE RGB_M_B /* Breathing light mode */
+#define RAINBOW RGB_M_R /* Rainbow light mode */
+#define SWIRL RGB_M_SW /* Swirl light mode */
+#define SNAKE RGB_M_SN /* Snake light mode */
+#define KNIGHT RGB_M_K /* Knight rider light mode */
+#define XMAS RGB_M_X /* Christmas light mode */
+#define GRAD RGB_M_G /* Gradient light mode */
+#define TEST RGB_M_T /* RGB test light mode */
+#define CYCLE RGBLIGHT_MODE_ALTERNATING /* Cycle through light modes */
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
@@ -115,11 +123,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    * |------+------+------+------+------+------|                |------+------+------+------+------+------|
    * | Ctrl |   Z  |   X  |   C  |   V  |  B   |                |   N  |   M  |   ,  |   .  | Copy |  /   |
    * `---------------------------+------+------+------.  ,------+------+------+---------------------------'
-   *                             | Alt  |Lower |Enter |  |Space |Upper |Leader|
+   *                             | Alt  |Lower |Enter |  |Space |Raise |Leader|
    *                             `--------------------'  `--------------------'
    */
-  [_QWERTY] = LAYOUT_kc( \
-     KC_ESC,  KC_Q,  KC_W,  KC_E,  KC_R,  KC_T,                   KC_Y,  KC_U,  KC_I,  KC_O,  KC_P,KC_BSPC,\
+  [_QWERTY] = LAYOUT( \
+    KC_ESC,  KC_Q,  KC_W,  KC_E,  KC_R,  KC_T,                   KC_Y,  KC_U,  KC_I,  KC_O,  KC_P,KC_BSPC,\
     KC_LSFT,  KC_A,  KC_S,  KC_D,  KC_F,  KC_G,                   KC_H,  KC_J,  KC_K,  KC_L,KC_SCLN,KC_QUOT,\
     KC_LCTL,  KC_Z,  KC_X,  KC_C,  KC_V,  KC_B,                   KC_N,  KC_M,KC_COMM,KC_DOT,C(KC_C),KC_SLSH,\
                                 KC_LALT, LOWER,KC_ENT,   KC_SPC, RAISE, KC_LEAD \
@@ -136,14 +144,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    *                             |      |      |      |  |      |      |      |
    *                             `--------------------'  `--------------------'
    */
-  [_LOWER] = LAYOUT_kc( \
-    KC_DEL,A(KC_1),A(KC_2),A(KC_3),     4,     5,                      6,     7,     8,     9,     0,  BSPC,\
-      CTLTB,    F1,    F2,    F3,    F4,    F5,                     F6,    F7,    F8,    F9,   F10, XXXXX,\
-       LSFT,   F11,   F12,   F13,   F14,   F15,                    F16,   F17,   F18,   F19,   F20, XXXXX,\
-                                  GUIEI, LOWER,   SPC,      ENT, RAISE, ALTKN \
+  [_LOWER] = LAYOUT( \
+    KC_DEL,A(KC_1),A(KC_2),A(KC_3),A(KC_4),S(KC_9),                 S(KC_0),KC_BTN1,KC_MS_U,KC_BTN2,KC_WH_U,KC_WH_R,\
+    KC_TAB,KC_GRV,KC_BSLS,KC_EQL,KC_MINS,S(KC_COMM),              S(KC_DOT),KC_MS_L,KC_MS_D,KC_MS_R,KC_WH_D,KC_WH_L,\
+    KC_LGUI,XXXXX, XXXXX, XXXXX, XXXXX, KC_LBRC,                 KC_RBRC, KC_ACL0, KC_ACL1, KC_ACL2, C(KC_P), XXXXX,\
+                                  XXXXX, XXXXX, XXXXX,      XXXXX, XXXXX, XXXXX \
   ),
 
-  /* Lower
+  /* Raise
    * ,-----------------------------------------.                ,-----------------------------------------.
    * |      |   1  |   2  |   3  |   4  |  5   |                |   6  |  7   |  8   |  9   |  0   |      |
    * |------+------+------+------+------+------|                |------+------+------+------+------+------|
@@ -154,33 +162,33 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    *                             |      |      |      |  |      |      |      |
    *                             `--------------------'  `--------------------'
    */
-  [_RAISE] = LAYOUT_kc( \
-        ESC,  EXLM,    AT,  HASH,   DLR,  PERC,                   CIRC,  AMPR,  ASTR,  LPRN,  RPRN,  BSPC,\
-      CTLTB, XXXXX, XXXXX, XXXXX, XXXXX, XXXXX,                   MINS,   EQL,  LCBR,  RCBR,  PIPE,   GRV,\
-       LSFT, XXXXX, XXXXX, XXXXX, XXXXX, XXXXX,                   UNDS,  PLUS,  LBRC,  RBRC,  BSLS,  TILD,\
-                                  GUIEI, LOWER,   SPC,      ENT, RAISE, ALTKN \
+  [_RAISE] = LAYOUT( \
+      XXXXX,  KC_1,  KC_2,  KC_3,  KC_4,  KC_5,                   KC_6,  KC_7,  KC_8,  KC_9,   KC_0, XXXXX,\
+      XXXXX, KC_F1, KC_F2, KC_F3, KC_F4, KC_F5,                  KC_F6, KC_F7, KC_F8, KC_F9, KC_F10, XXXXX,\
+      XXXXX,KC_F11,KC_F12,KC_F13,KC_F14,KC_F15,                 KC_F16,KC_F17,KC_F18,KC_F19,C(KC_X), XXXXX,\
+                                  XXXXX, XXXXX, XXXXX,    XXXXX, XXXXX, XXXXX \
   ),
 
   /* Adjust (Lower + Raise)
    * ,-----------------------------------------.                ,-----------------------------------------.
-   * |Reset |      |      |      |      |      |                |      |      |      |      |ClkUP |ClkRST|
+   * |RGBTOG|RGBMOD| CYCLE|      |      |      |                |      |      |      |      |      |RESET|
    * |------+------+------+------+------+------|                |------+------+------+------+------+------|
-   * |      |      |      |      |      |      |                |      |      |      |      |ClkDN |ClkTOG|
+   * |HUE_UP|SAT_UP|BRT_UP|      |      |      |                |      |      |      |      |      |      |
    * |------+------+------+------+------+------|                |------+------+------+------+------+------|
-   * |      |      |      |      |      |      |                |      |      |      |      |      |AudTOG|
+   * |HUE_DN|SAT_DN|BRT_DN|      |      |      |                |      |      |      |      |      |      |
    * `---------------------------+------+------+------.  ,------+------+------+---------------------------'
    *                             |      |      |      |  |      |      |      |
    *                             `--------------------'  `--------------------'
    */
-  [_ADJUST] = LAYOUT_kc( \
+  [_ADJUST] = LAYOUT( \
   //,-----------------------------------------.                ,-----------------------------------------.
-        RST,  LRST, RGB_M_K, XXXXX, XXXXX, XXXXX,                  XXXXX, XXXXX, XXXXX, XXXXX, XXXXX, XXXXX,\
+     RGBTOG, RGBMODE,CYCLE, XXXXX, XXXXX, XXXXX,               XXXXX, XXXXX, XXXXX, XXXXX, XXXXX, RESET,\
   //|------+------+------+------+------+------|                |------+------+------+------+------+------|
-       LTOG,  LHUI,  LSAI,  LVAI, XXXXX, XXXXX,                  XXXXX, XXXXX, XXXXX, XXXXX, XXXXX, XXXXX,\
+     HUE_UP,SAT_UP,BRT_UP, XXXXX, XXXXX, XXXXX,                  XXXXX, XXXXX, XXXXX, XXXXX, XXXXX, XXXXX,\
   //|------+------+------+------+------+------|                |------+------+------+------+------+------|
-       LMOD,  LHUD,  LSAD,  LVAD, XXXXX, XXXXX,                  XXXXX, XXXXX, XXXXX, XXXXX, XXXXX, XXXXX,\
+     HUE_DN,SAT_DN,BRT_DN, XXXXX, XXXXX, XXXXX,                  XXXXX, XXXXX, XXXXX, XXXXX, XXXXX, XXXXX,\
   //|------+------+------+------+------+------+------|  |------+------+------+------+------+------+------|
-                                  GUIEI, LOWER,   SPC,      ENT, RAISE, ALTKN \
+                                  XXXXX, XXXXX, XXXXX,    XXXXX, XXXXX, XXXXX \
                               //`--------------------'  `--------------------'
   )
 };
