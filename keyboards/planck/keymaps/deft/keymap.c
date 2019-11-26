@@ -48,7 +48,6 @@
  *
  *
  * Follow my cat:
- * https://twitter.com/BuchaTheCat
  * https://www.instagram.com/BuchaTheCat/
  *
  */

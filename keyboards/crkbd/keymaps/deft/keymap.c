@@ -48,7 +48,6 @@
  *
  *
  * Follow my cat:
- * https://twitter.com/BuchaTheCat
  * https://www.instagram.com/BuchaTheCat/
  *
  */
@@ -135,20 +134,20 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   /* Lower
    * ,-----------------------------------------.                ,-----------------------------------------.
-   * | Del  | Alt1 | Alt2 | Alt3 | Alt4 |  (   |                |   )  |Mouse1|MouseU|Mouse2|WheelU|WheelR|
+   * | Del  | Alt1 | Alt2 | Alt3 | Alt4 |  (   |                |   )  |      |  Up  |      |      |      |
    * |------+------+------+------+------+------|                |------+------+------+------+------+------|
-   * | Tab  |   `  |   \  |   =  |   -  |  <   |                |   >  |MouseL|MouseD|MouseR|WheelD|WheelL|
+   * | Tab  |   `  |   \  |   =  |   -  |  <   |                |   >  | Left | Down | Right|      |      |
    * |------+------+------+------+------+------|                |------+------+------+------+------+------|
-   * | GUI  |      |      |      |      |  [   |                |   ]  |Speed0|Speed1|Speed2|Paste |      |
+   * | GUI  |      |      |      |      |  [   |                |   ]  |      |      |      |Paste |      |
    * `---------------------------+------+------+------.  ,------+------+------+---------------------------'
-   *                             |      |      |      |  |      |      |      |
+   *                             |      |      |Space |  |      |      |      |
    *                             `--------------------'  `--------------------'
    */
   [_LOWER] = LAYOUT( \
-    KC_DEL,A(KC_1),A(KC_2),A(KC_3),A(KC_4),S(KC_9),                 S(KC_0),KC_BTN1,KC_MS_U,KC_BTN2,KC_WH_U,KC_WH_R,\
-    KC_TAB,KC_GRV,KC_BSLS,KC_EQL,KC_MINS,S(KC_COMM),              S(KC_DOT),KC_MS_L,KC_MS_D,KC_MS_R,KC_WH_D,KC_WH_L,\
-    KC_LGUI,XXXXX, XXXXX, XXXXX, XXXXX, KC_LBRC,                 KC_RBRC, KC_ACL0, KC_ACL1, KC_ACL2, C(KC_P), XXXXX,\
-                                  XXXXX, XXXXX, XXXXX,      XXXXX, XXXXX, XXXXX \
+    KC_DEL,A(KC_1),A(KC_2),A(KC_3),A(KC_4),S(KC_9),                 S(KC_0),XXXXX,KC_UP,XXXXX,XXXXX,XXXXX,\
+    KC_TAB,KC_GRV,KC_BSLS,KC_EQL,KC_MINS,S(KC_COMM),              S(KC_DOT),KC_LEFT,KC_DOWN,KC_RIGHT,XXXXX,XXXXX,\
+    KC_LGUI,XXXXX, XXXXX, XXXXX, XXXXX, KC_LBRC,                 KC_RBRC, XXXXX, XXXXX,XXXXX, C(KC_P), XXXXX,\
+                                  XXXXX, XXXXX, KC_SPC,      XXXXX, XXXXX, XXXXX \
   ),
 
   /* Raise
@@ -159,14 +158,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    * |------+------+------+------+------+------|                |------+------+------+------+------+------|
    * |      | F11  | F12  | F13  | F14  | F15  |                | F16  | F17  | F18  | F19  | Cut  |      |
    * `---------------------------+------+------+------.  ,------+------+------+---------------------------'
-   *                             |      |      |      |  |      |      |      |
+   *                             |      |      |      |  |Enter |      |      |
    *                             `--------------------'  `--------------------'
    */
   [_RAISE] = LAYOUT( \
       XXXXX,  KC_1,  KC_2,  KC_3,  KC_4,  KC_5,                   KC_6,  KC_7,  KC_8,  KC_9,   KC_0, XXXXX,\
       XXXXX, KC_F1, KC_F2, KC_F3, KC_F4, KC_F5,                  KC_F6, KC_F7, KC_F8, KC_F9, KC_F10, XXXXX,\
       XXXXX,KC_F11,KC_F12,KC_F13,KC_F14,KC_F15,                 KC_F16,KC_F17,KC_F18,KC_F19,C(KC_X), XXXXX,\
-                                  XXXXX, XXXXX, XXXXX,    XXXXX, XXXXX, XXXXX \
+                                  XXXXX, XXXXX, XXXXX,    KC_ENT, XXXXX, XXXXX \
   ),
 
   /* Adjust (Lower + Raise)
@@ -182,7 +181,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    */
   [_ADJUST] = LAYOUT( \
   //,-----------------------------------------.                ,-----------------------------------------.
-     RGBTOG, RGBMODE,CYCLE, XXXXX, XXXXX, XXXXX,               XXXXX, XXXXX, XXXXX, XXXXX, XXXXX, RESET,\
+     RGBTOG, RGBMODE,CYCLE,RGBRST, XXXXX, XXXXX,               XXXXX, XXXXX, XXXXX, XXXXX, XXXXX, RESET,\
   //|------+------+------+------+------+------|                |------+------+------+------+------+------|
      HUE_UP,SAT_UP,BRT_UP, XXXXX, XXXXX, XXXXX,                  XXXXX, XXXXX, XXXXX, XXXXX, XXXXX, XXXXX,\
   //|------+------+------+------+------+------|                |------+------+------+------+------+------|
